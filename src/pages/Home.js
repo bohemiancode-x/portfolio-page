@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom"
 import Hero from '../assets/hero.png'
+import { useTheme } from "../hooks/useTheme";
 
 export default function Home() {
+    const { mode } = useTheme();
+
   return (
-        <div className='h-full flex flex-col md:w-[75%] overflow-hidden'>
+        <div className={`h-full flex flex-col md:w-[75%] overflow-hidden ${mode}`}>
             <div className='mt-[4rem] md:mt-[12rem] xl:mt-[12rem] flex flex-col lg:flex-row justify-evenly px-14 gap-3 md:gap-5 xl:gap-3 items-center'>
                 <h2 className='text-center lg:text-start text-4xl font-body font-bold text-[#9a3a9a]'>I AM A <br /> WEB DEVELOPER</h2>
                 <Link to='/work'>

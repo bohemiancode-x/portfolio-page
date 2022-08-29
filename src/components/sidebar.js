@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom'
+import { useTheme } from '../hooks/useTheme'
 import Emmanuel from '../assets/emmanuel.jpg'
 
 const navitems = [
@@ -38,13 +39,25 @@ const navitems = [
 export default function Sidebar() {
     const location = useLocation();
     const [nav, setNav] = useState(false);
+    const { changeMode, mode } = useTheme()
+
+    const toggleMode = () => {
+        changeMode(mode === 'dark' ? 'light' : 'dark')
+    }
 
   return (
-    <div className='md:w-1/4'>
-        <svg onClick={() => setNav(true)} className='md:hidden block h-12 w-12 ml-5 mt-5 cursor-pointer' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-        </svg>
-    <div className='hidden md:flex bg-grey h-[100vh] flex-col items-center'>
+    <div className={`md:w-1/4 ${mode}`}>
+        <div className='md:hidden pt-5 flex items-center justify-between px-5'>
+            <svg onClick={() => setNav(true)} className='block h-6 w-6 ml-5 cursor-pointer' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+
+            <div onClick={toggleMode} className='mode mt-0'>
+                <img src={ mode === 'dark' ? "./img/light_mode_white.svg" : "./img/darkmode.svg" } alt="mode" className='h-5' />
+                <p className='font-body'>{ mode === 'dark' ? 'Light Mode' : 'Dark mode' }</p>
+            </div>
+        </div>
+    <div className='dark:bg-gray-900 hidden md:flex bg-grey h-[100%] flex-col items-center'>
 
         <div className='flex flex-col items-center gap-2'>
             <div>
@@ -64,9 +77,14 @@ export default function Sidebar() {
             </ul>
         </div>
 
+        <div onClick={toggleMode} className='mode'>
+            <img src={ mode === 'dark' ? "./img/light_mode_white.svg" : "./img/darkmode.svg" } alt="mode" className='h-5' />
+            <p className='font-body'>{ mode === 'dark' ? 'Light Mode' : 'Dark mode' }</p>
+        </div>
+
         <div className='mt-10 opacity-50'>
             <p className='font-body text-sm'>&#169; Copyright 2022.</p>
-            <p className='font-body text-sm'>All rights reserved.</p>
+            <p className='font-body text-sm'>All rights reserved.<br /> BohemianCode-x.</p>
         </div>
 
     </div>
@@ -84,7 +102,7 @@ export default function Sidebar() {
                     </svg>
                     <div className='flex flex-col gap-5 mt-28 px-10 items-center'>
                         {navitems.map((nav) => (
-                                <Link key={nav.number} className={location.pathname == nav.path ? 'font-body text-[#2c98f0] border-b-2 border-[#2c98f0]' : 'font-body'} to={nav.path}>
+                                <Link onClick={() => setNav(false)} key={nav.number} className={location.pathname == nav.path ? 'font-body text-[#2c98f0] border-b-2 border-[#2c98f0]' : 'font-body'} to={nav.path}>
                                     {nav.text}
                                 </Link>
                             ))}

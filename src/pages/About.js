@@ -9,10 +9,10 @@ export default function About() {
         </div>
 
         <div className='mt-10'>
-            <p className='tracking-wider font-body text-sm px-10'>
-                <span className='font-bold text-lg'>Hi! I'm Emmanuel Adisa.</span> I'm a budding, goal-driven, young developer passionate about bringing web designs to life. I'm trained in the development of scalable and responsive websites and I have executed several personal projects to perfection.
+            <p className='tracking-wider font-body text-xs lg:text-sm px-10'>
+                <span className='font-bold text-lg '>Hi! I'm Emmanuel Adisa.</span> I'm a budding, goal-driven, young developer passionate about bringing web designs to life. I'm trained in the development of scalable and responsive websites and I have executed several personal projects to perfection.
             </p>
-            <p className='mt-5 tracking-wider font-body text-sm px-10'>
+            <p className='mt-5 tracking-wider font-body text-xs lg:text-sm px-10'>
              I'm currently working on various frontend projects to advance and improve my skills. Most of my designs are sourced from frontendmentor.io .. I particularly love to work with APIs and databases like firebase.  I'm currently learning Advanced React and other frameworks like Next.js and Nuxt.js.You can reach me through my social media profiles attached.
             </p>
         </div>

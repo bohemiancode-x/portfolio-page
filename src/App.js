@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useTheme } from "./hooks/useTheme";
 
 //pages
 import Home from './pages/Home'
@@ -13,8 +14,10 @@ import Contact from './pages/Contact'
 import Sidebar from "./components/sidebar";
 
 function App() {
+  const { mode } = useTheme();
+
   return (
-    <div className="md:flex h-[100vh] max-w-4xl xl:max-w-6xl m-auto">
+    <div className={`App ${mode}`}>
       <BrowserRouter>
         <Sidebar />
         <Routes>

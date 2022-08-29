@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useTheme } from "../hooks/useTheme";
 import {
   Accordion,
   AccordionItem,
@@ -25,15 +26,16 @@ const education = [
   },
   {
     id: 4,
-    header: 'FULL COURSE ON REACT WITH THE NETNINJA',
+    header: 'FULL COURSE ON REACT & FIREBASE WITH THE NETNINJA',
     info: 'Participated in an in-depth online learning with The Netninja UK tutored by Shaun J. Pelling. (May 2022 - July 2022)'
   }
 ]
 
 export default function Education() {
+  const { mode } = useTheme();
 
   return (
-    <div className='lg:w-[75%]'>
+    <div className={`lg:w-[75%] ${mode}`}>
         <div className='mt-20 px-5 lg:px-10'>
           <h3 className='text-sm font-body opacity-50 tracking-widest'>EDUCATION</h3>
           <h2 className='mt-5 font-[serif] tracking-widest text-2xl font-bold'>EDUCATION</h2>
@@ -43,7 +45,7 @@ export default function Education() {
           <Accordion  allowZeroExpanded className='mt-5'>
             {education.map((item) => (
                   <AccordionItem key={item.id} className='mt-3'>
-                  <AccordionItemHeading className='flex justify-between lg:w-3/4 h-[3rem] p-3 items-center rounded bg-grey'>
+                  <AccordionItemHeading className='flex justify-between lg:w-3/4 h-[3rem] p-3 items-center rounded bg-grey dark:bg-gray-400'>
                       <AccordionItemButton className='font-body'>
                           {item.header}
                       </AccordionItemButton>
