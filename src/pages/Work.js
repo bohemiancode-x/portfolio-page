@@ -12,7 +12,7 @@ const projects = [
     id: 2,
     title: 'Countries List App with Rest API',
     info: 'A responsive react project styled with tailwindcss that dynamically injects information about countries of the world from Rest API with the use of react tools.',
-    link: 'http://countries-list-app-with-restapi.vercel.app/'
+    link: 'http://countries-list-app-with-rest-api.vercel.app/'
   },
   {
     id: 3,
@@ -56,7 +56,7 @@ export default function Work() {
   const { mode } = useTheme();
 
   return (
-    <div className={`lg:w-[75%] lg:h-[125vh] ${mode}`}>
+    <div className={`lg:w-[75%] lg:h-[125vh] xl:h-[100vh] ${mode}`}>
       <div className='mt-5 lg:mt-10 px-5 lg:px-10'>
           <h3 className='text-sm font-body opacity-50 tracking-widest'>WORK</h3>
           <h2 className='mt-5 font-[serif] tracking-widest text-2xl font-bold'>PORTFOLIO</h2>

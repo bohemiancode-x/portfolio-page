@@ -6,7 +6,7 @@
 
 @layer components {
   .App {
-    @apply md:flex h-[100vh] max-w-4xl xl:max-w-6xl m-auto
+    @apply md:flex h-[100vh]  m-auto
   }
   .dark {
     @apply bg-black text-white
